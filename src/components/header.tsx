@@ -59,30 +59,30 @@ export default function Header() {
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
-
-          {isOpen && (
-            <nav className="md:hidden pt-4 pb-2 space-y-2 border-t border-slate-200/50 mt-4">
-              <button
-                className="w-full text-left px-4 py-2 text-slate-600 hover:text-emerald-600 transition-colors duration-300 font-medium"
-                onClick={() => scrollToElement("#features")}
-              >
-                Funcionalidades
-              </button>
-              <button
-                className="w-full text-left px-4 py-2 text-slate-600 hover:text-emerald-600 transition-colors duration-300 font-medium"
-                onClick={() => scrollToElement("#pricing")}
-              >
-                Preços
-              </button>
-              <button
-                className="w-full text-left px-4 py-2 text-slate-600 hover:text-emerald-600 transition-colors duration-300 font-medium"
-                onClick={() => scrollToElement("#how-it-works")}
-              >
-                Como Funciona
-              </button>
-            </nav>
-          )}
         </div>
+
+        {isOpen && (
+          <nav className="md:hidden pt-4 pb-2 space-y-2 border-t border-slate-200/50 mt-4">
+            <button
+              className="w-full text-left px-4 py-2 text-slate-600 hover:text-emerald-600 transition-colors duration-300 font-medium"
+              onClick={() => scrollToElement("#features")}
+            >
+              Funcionalidades
+            </button>
+            <button
+              className="w-full text-left px-4 py-2 text-slate-600 hover:text-emerald-600 transition-colors duration-300 font-medium"
+              onClick={() => scrollToElement("#pricing")}
+            >
+              Preços
+            </button>
+            <button
+              className="w-full text-left px-4 py-2 text-slate-600 hover:text-emerald-600 transition-colors duration-300 font-medium"
+              onClick={() => scrollToElement("#how-it-works")}
+            >
+              Como Funciona
+            </button>
+          </nav>
+        )}
       </div>
     </header>
   );
