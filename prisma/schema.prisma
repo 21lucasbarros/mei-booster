@@ -1,0 +1,90 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Plan {
+  FREE
+  PREMIUM
+}
+
+enum Status {
+  ACTIVE
+  SUSPENDED
+  CANCELLED
+}
+
+model User {
+  id            String   @id @default(uuid())
+
+  name          String
+  email         String   @unique
+  password      String
+
+  // SaaS
+  role          Role     @default(USER)
+  plan          Plan     @default(FREE)
+  status        Status   @default(ACTIVE)
+
+  // stripe / billing
+  stripeCustomerId  String? @unique
+  stripeSubscriptionId String?
+
+  // controle de trial e upgrades
+  trialEndsAt   DateTime?
+  planExpiresAt DateTime?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // relacionamentos (MEI Booster)
+  sales         Sale[]
+  documents     Document[]
+  reminders     Reminder[]
+}
+
+model Sale {
+  id        String   @id @default(uuid())
+  value     Float
+  customer  String?
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+}
+
+model Reminder {
+  id        String   @id @default(uuid())
+  type      String
+  dueDate   DateTime
+  done      Boolean  @default(false)
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+}
+
+model Document {
+  id        String   @id @default(uuid())
+  name      String
+  url       String // link do upload (S3, Supabase Storage, Cloudflare R2)
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+}
