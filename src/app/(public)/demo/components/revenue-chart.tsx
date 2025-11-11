@@ -38,8 +38,11 @@ export function RevenueChart() {
         </p>
       </CardHeader>
       <CardContent>
-        <ResponsiveContainer width="100%" height={300}>
-          <AreaChart data={revenueData}>
+        <ResponsiveContainer width="100%" height={350}>
+          <AreaChart
+            data={revenueData}
+            margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+          >
             <defs>
               <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export function CTA() {
   return (
@@ -11,22 +12,46 @@ export function CTA() {
 
       <div className="container mx-auto max-w-4xl relative z-10">
         <div className="text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium text-white">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium text-white"
+          >
             <Sparkles className="w-4 h-4" />
             Empreendedores que escolhem clareza, não caos.
-          </div>
+          </motion.div>
 
-          <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl md:text-6xl font-bold text-white leading-tight"
+          >
             Pronto para elevar a gestão do seu negócio a um novo padrão?
-          </h2>
+          </motion.h2>
 
-          <p className="text-xl text-emerald-50 max-w-2xl mx-auto leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl text-emerald-50 max-w-2xl mx-auto leading-relaxed"
+          >
             Comece gratuitamente e experimente a tranquilidade de ter prazos,
             vendas e documentos sob controle — com alertas inteligentes e
             insights que impulsionam crescimento.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
+          >
             <Link href="/sign-up">
               <Button
                 size="lg"
@@ -45,9 +70,15 @@ export function CTA() {
                 Ver demonstração
               </Button>
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto"
+          >
             <div className="text-center">
               <div className="text-4xl font-bold text-white mb-2">15M+</div>
               <div className="text-emerald-100 text-sm">MEIs no Brasil</div>
@@ -60,7 +91,7 @@ export function CTA() {
               <div className="text-4xl font-bold text-white mb-2">100%</div>
               <div className="text-emerald-100 text-sm">Satisfação</div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

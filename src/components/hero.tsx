@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ArrowRight,
   BarChart3,
@@ -7,6 +9,7 @@ import {
 } from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export function Hero() {
   return (
@@ -15,26 +18,46 @@ export function Hero() {
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col items-center text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-[#232842] border border-slate-200 dark:border-[#2E3451] text-sm font-medium text-slate-700 dark:text-slate-200 transition-colors">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-[#232842] border border-slate-200 dark:border-[#2E3451] text-sm font-medium text-slate-700 dark:text-slate-200 transition-colors"
+          >
             <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             O mercado que movimenta mais de 15 milhões de negócios no Brasil.
-          </div>
+          </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-slate-50 max-w-4xl leading-tight">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-slate-50 max-w-4xl leading-tight"
+          >
             Gestão Inteligente para o Seu{" "}
             <span className="bg-linear-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
               MEI
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed"
+          >
             Nunca mais deixe um DAS passar despercebido — e nem uma venda sem
             controle. Centralize obrigações, monitore seu faturamento com
             clareza absoluta e receba análises inteligentes para elevar o
             crescimento do seu negócio.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 pt-4"
+          >
             <Link href="/sign-up">
               <Button
                 size="lg"
@@ -53,9 +76,14 @@ export function Hero() {
                 Ver Demonstração
               </Button>
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 w-full max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 w-full max-w-4xl"
+          >
             {[
               {
                 icon: Bell,
@@ -78,16 +106,22 @@ export function Hero() {
                 color: "text-violet-600 dark:text-violet-400",
               },
             ].map((item, index) => (
-              <div key={index} className="flex flex-col items-center gap-3">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                className="flex flex-col items-center gap-3"
+              >
                 <div className="w-14 h-14 rounded-2xl bg-white dark:bg-[#232842] shadow-md flex items-center justify-center border border-slate-200 dark:border-[#2E3451] transition-colors">
                   <item.icon className={`w-7 h-7 ${item.color}`} />
                 </div>
                 <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
                   {item.label}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
