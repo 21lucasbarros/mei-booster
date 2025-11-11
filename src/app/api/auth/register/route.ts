@@ -4,9 +4,9 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 
 const schema = z.object({
-  name: z.string().min(3),
-  email: z.string().email(),
-  password: z.string().min(8),
+  name: z.string().min(3, "Nome muito curto"),
+  email: z.string().email("E-mail inválido"),
+  password: z.string().min(8, "A senha deve ter no mínimo 8 caracteres"),
 });
 
 export async function POST(req: Request) {
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
       data: {
         name,
         email,
-        passaword: hash,
+        password: hash,
       },
     });
 
