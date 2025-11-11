@@ -6,6 +6,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -34,20 +35,24 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button
-              size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 h-14 text-lg rounded-xl shadow-lg shadow-emerald-600/30"
-            >
-              Começar Gratuitamente
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="h-14 px-8 text-lg rounded-xl border-2 dark:border-[#2E3451] dark:text-slate-200 dark:hover:bg-[#232842]"
-            >
-              Ver Demonstração
-            </Button>
+            <Link href="/sign-up">
+              <Button
+                size="lg"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 h-14 text-lg rounded-xl shadow-lg shadow-emerald-600/30"
+              >
+                Começar Gratuitamente
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+            <Link href="/demo">
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-14 px-8 text-lg rounded-xl border-2 dark:border-[#2E3451] dark:text-slate-200 dark:hover:bg-[#232842]"
+              >
+                Ver Demonstração
+              </Button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 w-full max-w-4xl">

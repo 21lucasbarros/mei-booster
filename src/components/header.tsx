@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { scrollToElement } from "@/utils/scrollToElement";
 import { ThemeToggle } from "./theme-toggle";
+import Link from "next/link";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,15 +44,19 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
-            <Button
-              variant="ghost"
-              className="text-slate-900 dark:text-slate-50 hover:text-emerald-600 dark:hover:text-emerald-400"
-            >
-              Entrar
-            </Button>
-            <Button className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg">
-              Começar grátis
-            </Button>
+            <Link href="/login">
+              <Button
+                variant="ghost"
+                className="text-slate-900 dark:text-slate-50 hover:text-emerald-600 dark:hover:text-emerald-400"
+              >
+                Entrar
+              </Button>
+            </Link>
+            <Link href="/sign-up">
+              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg">
+                Começar grátis
+              </Button>
+            </Link>
             <ThemeToggle />
           </div>
 
@@ -90,6 +95,21 @@ export function Header() {
             >
               Como Funciona
             </button>
+            <div className="pt-2 space-y-2">
+              <Link href="/login" className="block">
+                <Button
+                  variant="ghost"
+                  className="w-full text-slate-900 dark:text-slate-50 hover:text-emerald-600 dark:hover:text-emerald-400"
+                >
+                  Entrar
+                </Button>
+              </Link>
+              <Link href="/sign-up" className="block">
+                <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg">
+                  Começar grátis
+                </Button>
+              </Link>
+            </div>
           </nav>
         )}
       </div>

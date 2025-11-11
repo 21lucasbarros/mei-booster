@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export function CTA() {
   return (
@@ -26,20 +27,24 @@ export function CTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button
-              size="lg"
-              className="bg-white hover:bg-slate-50 text-emerald-600 px-8 h-14 text-lg rounded-xl shadow-xl"
-            >
-              Criar minha conta gratuita
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="h-14 px-8 text-lg rounded-xl border-2 border-white/40 bg-white/5 backdrop-blur-sm text-white hover:bg-white/15 hover:border-white/60 transition-all shadow-lg"
-            >
-              Ver demonstração
-            </Button>
+            <Link href="/sign-up">
+              <Button
+                size="lg"
+                className="bg-white hover:bg-slate-50 text-emerald-600 px-8 h-14 text-lg rounded-xl shadow-xl"
+              >
+                Criar minha conta gratuita
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+            <Link href="/demo">
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-14 px-8 text-lg rounded-xl border-2 border-white/40 bg-white/5 backdrop-blur-sm text-white hover:bg-white/15 hover:border-white/60 transition-all shadow-lg"
+              >
+                Ver demonstração
+              </Button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
