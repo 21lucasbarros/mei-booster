@@ -27,7 +27,7 @@ export function LoginForm() {
 
   async function onSubmit(data: LoginSchema) {
     try {
-      const res = await fetch("api/auth/login", {
+      const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -41,7 +41,7 @@ export function LoginForm() {
       }
 
       toast.success("Login realizado com sucesso!");
-      router.push("/dashboard");
+      window.location.href = "/dashboard";
     } catch (error) {
       console.error(error);
       toast.error("Erro inesperado ao fazer login");
