@@ -61,6 +61,7 @@ export function LoginForm() {
             type="email"
             placeholder="seu@email.com"
             className="h-11 pl-10"
+            autoComplete="email"
             {...register("email")}
           />
         </div>
@@ -88,6 +89,7 @@ export function LoginForm() {
             type={showPassword ? "text" : "password"}
             placeholder="••••••••"
             className="h-11 pl-10 pr-10"
+            autoComplete="current-password"
             {...register("password")}
           />
           <button
