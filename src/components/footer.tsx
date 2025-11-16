@@ -7,7 +7,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 dark:bg-[#0F111A] text-slate-300 dark:text-slate-400 py-16 px-4 transition-colors border-t border-slate-800 dark:border-[#1A1D2E]">
+    <footer className="bg-slate-900 dark:bg-[#151515] text-slate-300 dark:text-slate-400 py-16 px-4 transition-colors border-t border-slate-800 dark:border-[#2A2A2A]">
       <div className="container mx-auto max-w-7xl">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="space-y-4">
@@ -74,7 +74,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li>
                 <a
-                  href="#"
+                  href="/privacidade"
                   className="hover:text-emerald-400 transition-colors"
                 >
                   Privacidade
@@ -82,7 +82,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/termos"
                   className="hover:text-emerald-400 transition-colors"
                 >
                   Termos de Uso
@@ -92,7 +92,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-slate-800 dark:border-[#1A1D2E] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-slate-800 dark:border-[#2A2A2A] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-slate-400 dark:text-slate-500">
             © {currentYear} MEI Booster. Todos os direitos reservados.
           </p>
@@ -100,14 +100,14 @@ export function Footer() {
           <div className="flex items-center gap-4">
             <a
               href="mailto:contato@meibooster.com"
-              className="w-10 h-10 rounded-lg bg-slate-800 dark:bg-[#232842] hover:bg-slate-700 dark:hover:bg-[#2E3451] flex items-center justify-center transition-colors"
+              className="w-10 h-10 rounded-lg bg-slate-800 dark:bg-[#1E1E1E] hover:bg-slate-700 dark:hover:bg-[#2A2A2A] flex items-center justify-center transition-colors"
               aria-label="Email"
             >
               <Mail className="w-5 h-5 text-slate-400" />
             </a>
             <a
               href="#"
-              className="w-10 h-10 rounded-lg bg-slate-800 dark:bg-[#232842] hover:bg-slate-700 dark:hover:bg-[#2E3451] flex items-center justify-center transition-colors"
+              className="w-10 h-10 rounded-lg bg-slate-800 dark:bg-[#1E1E1E] hover:bg-slate-700 dark:hover:bg-[#2A2A2A] flex items-center justify-center transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5 text-slate-400" />

@@ -8,7 +8,7 @@ import { Pricing } from "@/components/pricing";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-linear-to-b from-white to-slate-50 dark:from-[#151823] dark:to-[#0F111A] transition-colors">
+    <main className="min-h-screen bg-linear-to-b from-white to-slate-50 dark:from-[#1A1A1A] dark:to-[#151515] transition-colors">
       <Header />
       <Hero />
       <Features />

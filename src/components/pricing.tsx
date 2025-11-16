@@ -43,8 +43,8 @@ const plans = [
 export function Pricing() {
   return (
     <section
-      className="py-24 px-4 bg-[#f7f7f7] dark:bg-[#151823] transition-colors"
-      id="#pricing"
+      id="pricing"
+      className="py-24 px-4 bg-[#f7f7f7] dark:bg-[#1A1A1A] transition-colors"
     >
       <div className="container mx-auto max-w-6xl">
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -62,8 +62,8 @@ export function Pricing() {
               key={index}
               className={`p-8 relative ${
                 plan.popular
-                  ? "border-2 border-emerald-600 shadow-2xl shadow-emerald-600/20 scale-105 dark:bg-[#232842]"
-                  : "border-2 border-slate-200 dark:border-[#2E3451] dark:bg-[#232842]"
+                  ? "border-2 border-emerald-600 shadow-2xl shadow-emerald-600/20 scale-105 dark:bg-[#1E1E1E]"
+                  : "border-2 border-slate-200 dark:border-[#2A2A2A] dark:bg-[#1E1E1E]"
               }`}
             >
               {plan.popular && (
@@ -97,7 +97,7 @@ export function Pricing() {
                 className={`w-full h-12 text-lg rounded-xl mb-8 ${
                   plan.popular
                     ? "bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-600/30"
-                    : "bg-slate-900 hover:bg-slate-800 dark:bg-[#2E3451] dark:hover:bg-[#3A3E5A] text-white"
+                    : "bg-slate-900 hover:bg-slate-800 dark:bg-[#2A2A2A] dark:hover:bg-[#333333] text-white"
                 }`}
               >
                 {plan.cta}
@@ -110,7 +110,7 @@ export function Pricing() {
                       className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
                         plan.popular
                           ? "bg-emerald-100 dark:bg-emerald-900/40"
-                          : "bg-slate-100 dark:bg-[#2E3451]"
+                          : "bg-slate-100 dark:bg-[#2A2A2A]"
                       }`}
                     >
                       <Check

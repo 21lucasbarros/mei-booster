@@ -165,14 +165,14 @@ export function SignUpForm() {
         >
           Concordo com os{" "}
           <Link
-            href="/terms"
+            href="/termos"
             className="text-emerald-600 hover:text-emerald-700 font-medium transition-colors"
           >
             Termos
           </Link>{" "}
           e{" "}
           <Link
-            href="/privacy"
+            href="/privacidade"
             className="text-emerald-600 hover:text-emerald-700 font-medium transition-colors"
           >
             Privacidade

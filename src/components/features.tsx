@@ -74,7 +74,7 @@ const features = [
 export function Features() {
   return (
     <section
-      className="py-24 px-4 bg-[#f7f7f7] dark:bg-[#151823] transition-colors"
+      className="py-24 px-4 bg-[#f7f7f7] dark:bg-[#1A1A1A] transition-colors"
       id="#features"
     >
       <div className="container mx-auto max-w-7xl">
@@ -92,7 +92,7 @@ export function Features() {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-slate-200 dark:hover:border-[#2E3451] group cursor-pointer dark:bg-[#232842] dark:border-[#2E3451]"
+              className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-slate-200 dark:hover:border-[#2A2A2A] group cursor-pointer dark:bg-[#1E1E1E] dark:border-[#2A2A2A]"
             >
               <div
                 className={`w-12 h-12 rounded-xl bg-linear-to-br ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}

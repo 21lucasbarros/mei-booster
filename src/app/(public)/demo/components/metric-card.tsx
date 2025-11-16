@@ -22,7 +22,7 @@ export function MetricCard({
 }: MetricCardProps) {
   return (
     <motion.div whileHover={{ y: -4, transition: { duration: 0.2 } }}>
-      <Card className="hover:shadow-lg transition-all duration-300 bg-white dark:bg-[#232842] border border-slate-200 dark:border-[#2E3451] text-slate-900 dark:text-slate-50">
+      <Card className="hover:shadow-lg transition-all duration-300 bg-white dark:bg-[#1E1E1E] border border-slate-200 dark:border-[#2A2A2A] text-slate-900 dark:text-slate-50">
         <CardHeader className="flex flex-row items-center justify-between pb-2">
           <CardTitle className="text-sm font-medium text-slate-600 dark:text-slate-400">
             {title}

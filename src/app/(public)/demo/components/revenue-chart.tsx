@@ -28,7 +28,7 @@ const revenueData = [
 
 export function RevenueChart() {
   return (
-    <Card className="lg:col-span-2 bg-white dark:bg-[#232842] border border-slate-200 dark:border-[#2E3451] text-slate-900 dark:text-slate-50">
+    <Card className="lg:col-span-2 bg-white dark:bg-[#1E1E1E] border border-slate-200 dark:border-[#2A2A2A] text-slate-900 dark:text-slate-50">
       <CardHeader>
         <CardTitle className="text-lg font-semibold text-slate-900 dark:text-slate-50">
           Evolução do Faturamento

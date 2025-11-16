@@ -29,7 +29,7 @@ const steps = [
 export function HowItWorks() {
   return (
     <section
-      className="py-24 px-4 bg-slate-50 dark:bg-[#1A1D2E] transition-colors"
+      className="py-24 px-4 bg-slate-50 dark:bg-[#1E1E1E] transition-colors"
       id="#how-it-works"
     >
       <div className="container mx-auto max-w-7xl">
@@ -47,7 +47,7 @@ export function HowItWorks() {
 
           {steps.map((step, index) => (
             <div key={index} className="relative">
-              <div className="bg-white dark:bg-[#232842] rounded-2xl p-8 shadow-lg border-2 border-slate-100 dark:border-[#2E3451] hover:border-emerald-200 dark:hover:border-emerald-600/50 transition-all duration-300 hover:shadow-xl">
+              <div className="bg-white dark:bg-[#1E1E1E] rounded-2xl p-8 shadow-lg border-2 border-slate-100 dark:border-[#2A2A2A] hover:border-emerald-200 dark:hover:border-emerald-600/50 transition-all duration-300 hover:shadow-xl">
                 <div className="absolute -top-6 left-8 w-12 h-12 bg-linear-to-br from-emerald-600 to-teal-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
                   {step.step}
                 </div>

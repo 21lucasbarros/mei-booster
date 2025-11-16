@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 
 export default function DemoPage() {
   return (
-    <div className="min-h-screen bg-linear-to-b from-white to-slate-50 dark:from-[#151823] dark:to-[#0F111A] transition-colors">
+    <div className="min-h-screen bg-linear-to-b from-white to-slate-50 dark:from-[#1A1A1A] dark:to-[#151515] transition-colors">
       <DemoHeader />
 
       <main className="relative overflow-hidden pt-20">

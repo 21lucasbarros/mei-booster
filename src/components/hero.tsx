@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-24 pb-32 px-4 bg-[#f7f7f7] dark:bg-[#151823] transition-colors">
+    <section className="relative overflow-hidden pt-24 pb-32 px-4 bg-[#f7f7f7] dark:bg-[#1A1A1A] transition-colors">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-size-[24px_24px]"></div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -22,7 +22,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-[#232842] border border-slate-200 dark:border-[#2E3451] text-sm font-medium text-slate-700 dark:text-slate-200 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-[#1E1E1E] border border-slate-200 dark:border-[#2A2A2A] text-sm font-medium text-slate-700 dark:text-slate-200 transition-colors"
           >
             <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             O mercado que movimenta mais de 15 milhões de negócios no Brasil.
@@ -71,7 +71,7 @@ export function Hero() {
               <Button
                 size="lg"
                 variant="outline"
-                className="h-14 px-8 text-lg rounded-xl border-2 dark:border-[#2E3451] dark:text-slate-200 dark:hover:bg-[#232842]"
+                className="h-14 px-8 text-lg rounded-xl border-2 dark:border-[#2A2A2A] dark:text-slate-200 dark:hover:bg-[#1E1E1E]"
               >
                 Ver Demonstração
               </Button>
@@ -113,7 +113,7 @@ export function Hero() {
                 transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                 className="flex flex-col items-center gap-3"
               >
-                <div className="w-14 h-14 rounded-2xl bg-white dark:bg-[#232842] shadow-md flex items-center justify-center border border-slate-200 dark:border-[#2E3451] transition-colors">
+                <div className="w-14 h-14 rounded-2xl bg-white dark:bg-[#1E1E1E] shadow-md flex items-center justify-center border border-slate-200 dark:border-[#2A2A2A] transition-colors">
                   <item.icon className={`w-7 h-7 ${item.color}`} />
                 </div>
                 <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
