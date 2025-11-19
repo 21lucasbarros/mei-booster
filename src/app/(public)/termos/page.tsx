@@ -12,7 +12,6 @@ import {
 export default function TermosPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#151515]">
-      {/* Header */}
       <div className="relative bg-white dark:bg-[#1E1E1E] border-b border-slate-200 dark:border-[#2A2A2A]">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-size-[24px_24px]"></div>
 
@@ -49,7 +48,6 @@ export default function TermosPage() {
         </div>
       </div>
 
-      {/* Intro */}
       <div className="container mx-auto max-w-5xl px-6 py-8">
         <div className="bg-white dark:bg-[#1E1E1E] rounded-xl p-6 border border-slate-200 dark:border-[#2A2A2A]">
           <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
@@ -60,10 +58,8 @@ export default function TermosPage() {
         </div>
       </div>
 
-      {/* Accordion Content */}
       <div className="container mx-auto max-w-5xl px-6 pb-12">
         <Accordion type="single" collapsible className="w-full">
-          {/* Item 1 */}
           <AccordionItem value="item-1">
             <AccordionTrigger>Aceitação dos Termos</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
@@ -88,7 +84,6 @@ export default function TermosPage() {
             </AccordionContent>
           </AccordionItem>
 
-          {/* Item 2 */}
           <AccordionItem value="item-2">
             <AccordionTrigger>Descrição dos Serviços</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
@@ -109,7 +104,6 @@ export default function TermosPage() {
             </AccordionContent>
           </AccordionItem>
 
-          {/* Item 3 */}
           <AccordionItem value="item-3">
             <AccordionTrigger>Cadastro e Conta de Usuário</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
@@ -145,7 +139,6 @@ export default function TermosPage() {
             </AccordionContent>
           </AccordionItem>
 
-          {/* Item 4 */}
           <AccordionItem value="item-4">
             <AccordionTrigger>Pagamento e Cobrança</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
@@ -185,7 +178,6 @@ export default function TermosPage() {
             </AccordionContent>
           </AccordionItem>
 
-          {/* Item 5 */}
           <AccordionItem value="item-5">
             <AccordionTrigger>Uso Aceitável da Plataforma</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
@@ -206,7 +198,6 @@ export default function TermosPage() {
             </AccordionContent>
           </AccordionItem>
 
-          {/* Item 6 */}
           <AccordionItem value="item-6">
             <AccordionTrigger>Propriedade Intelectual</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
@@ -231,7 +222,6 @@ export default function TermosPage() {
             </AccordionContent>
           </AccordionItem>
 
-          {/* Item 7 */}
           <AccordionItem value="item-7">
             <AccordionTrigger>Limitação de Responsabilidade</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
@@ -268,7 +258,6 @@ export default function TermosPage() {
             </AccordionContent>
           </AccordionItem>
 
-          {/* Item 8 */}
           <AccordionItem value="item-8">
             <AccordionTrigger>Suspensão e Encerramento</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
@@ -310,7 +299,6 @@ export default function TermosPage() {
             </AccordionContent>
           </AccordionItem>
 
-          {/* Item 9 */}
           <AccordionItem value="item-9">
             <AccordionTrigger>Modificações nos Serviços</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
@@ -333,7 +321,6 @@ export default function TermosPage() {
             </AccordionContent>
           </AccordionItem>
 
-          {/* Item 10 */}
           <AccordionItem value="item-10">
             <AccordionTrigger>Lei Aplicável e Foro</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
@@ -360,7 +347,6 @@ export default function TermosPage() {
         </Accordion>
       </div>
 
-      {/* Footer Contact */}
       <div className="container mx-auto max-w-5xl px-6 pb-12">
         <div className="bg-white dark:bg-[#1E1E1E] rounded-xl p-6 border border-slate-200 dark:border-[#2A2A2A]">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">

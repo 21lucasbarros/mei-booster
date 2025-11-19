@@ -9,7 +9,6 @@ import {
   Eye,
   Database,
   CheckCircle,
-  Cookie,
   Zap,
   Settings,
   BarChart3,

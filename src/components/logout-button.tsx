@@ -13,7 +13,7 @@ export function LogoutButton() {
       });
 
       if (response.ok) {
-        window.location.href = "/";
+        router.push("/");
       }
     } catch (error) {
       console.error("Erro ao fazer logout:", error);

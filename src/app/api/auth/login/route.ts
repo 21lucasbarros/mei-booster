@@ -16,7 +16,7 @@ export async function POST(req: Request) {
     if (!user) {
       return NextResponse.json(
         { error: "Credenciais inválidas." },
-        { status: 401 }
+        { status: 401 },
       );
     }
 
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     if (!isCorrect) {
       return NextResponse.json(
         { error: "Credenciais inválidas." },
-        { status: 401 }
+        { status: 401 },
       );
     }
 
@@ -54,7 +54,7 @@ export async function POST(req: Request) {
 
     return response;
   } catch (error) {
-    console.error("🔴 Erro no login:", error);
+    console.error("Erro no login:", error);
     return NextResponse.json({ error: "Erro no login." }, { status: 500 });
   }
 }

@@ -41,7 +41,7 @@ export function LoginForm() {
       }
 
       toast.success("Login realizado com sucesso!");
-      window.location.href = "/dashboard";
+      router.push("/dashboard");
     } catch (error) {
       console.error(error);
       toast.error("Erro inesperado ao fazer login");
