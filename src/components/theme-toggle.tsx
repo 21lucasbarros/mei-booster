@@ -9,7 +9,6 @@ export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
-  // Evita problemas de hidratação
   React.useEffect(() => {
     setMounted(true);
   }, []);
