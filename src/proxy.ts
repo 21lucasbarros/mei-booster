@@ -12,7 +12,16 @@ export async function proxy(request: NextRequest) {
   try {
     const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
     await jwtVerify(token, secret);
-    return NextResponse.next();
+
+    const response = NextResponse.next();
+
+    // Headers de segurança e performance
+    response.headers.set("X-DNS-Prefetch-Control", "on");
+    response.headers.set("X-Frame-Options", "SAMEORIGIN");
+    response.headers.set("X-Content-Type-Options", "nosniff");
+    response.headers.set("Referrer-Policy", "origin-when-cross-origin");
+
+    return response;
   } catch (error) {
     return NextResponse.redirect(new URL("/login", request.url));
   }

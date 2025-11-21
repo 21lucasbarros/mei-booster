@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, FileText } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -51,22 +51,22 @@ export function LoginForm() {
   return (
     <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
       <div className="space-y-2">
-        <Label htmlFor="email" className="text-sm font-medium">
-          E-mail
+        <Label htmlFor="emailOrCnpj" className="text-sm font-medium">
+          E-mail ou CNPJ
         </Label>
         <div className="relative">
           <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
-            id="email"
-            type="email"
-            placeholder="seu@email.com"
+            id="emailOrCnpj"
+            type="text"
+            placeholder="seu@email.com ou 00.000.000/0000-00"
             className="h-11 pl-10"
-            autoComplete="email"
-            {...register("email")}
+            autoComplete="username"
+            {...register("emailOrCnpj")}
           />
         </div>
-        {errors.email && (
-          <p className="text-red-500 text-xs">{errors.email.message}</p>
+        {errors.emailOrCnpj && (
+          <p className="text-red-500 text-xs">{errors.emailOrCnpj.message}</p>
         )}
       </div>
 

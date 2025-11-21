@@ -1,10 +1,23 @@
-import { CTA } from "@/components/cta";
-import { Features } from "@/components/features";
-import { Footer } from "@/components/footer";
+import dynamic from "next/dynamic";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
-import { HowItWorks } from "@/components/how-it-works";
-import { Pricing } from "@/components/pricing";
+import { Footer } from "@/components/footer";
+
+// Lazy loading de componentes que não estão na primeira tela
+const Features = dynamic(() =>
+  import("@/components/features").then((mod) => ({ default: mod.Features }))
+);
+const HowItWorks = dynamic(() =>
+  import("@/components/how-it-works").then((mod) => ({
+    default: mod.HowItWorks,
+  }))
+);
+const Pricing = dynamic(() =>
+  import("@/components/pricing").then((mod) => ({ default: mod.Pricing }))
+);
+const CTA = dynamic(() =>
+  import("@/components/cta").then((mod) => ({ default: mod.CTA }))
+);
 
 export default function Home() {
   return (

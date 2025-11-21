@@ -3,30 +3,72 @@ import bcrypt from "bcrypt";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { generateToken } from "@/lib/auth";
+import { cleanCNPJ } from "@/utils/cnpj";
+import {
+  checkRateLimit,
+  recordFailedAttempt,
+  clearAttempts,
+} from "@/lib/rate-limit";
+import { sanitizeInput, normalizeEmail } from "@/lib/security";
 
-const schema = z.object({ email: z.string().email(), password: z.string() });
+const schema = z.object({
+  emailOrCnpj: z.string().min(1, "E-mail ou CNPJ é obrigatório"),
+  password: z.string(),
+});
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { email, password } = schema.parse(body);
+    let { emailOrCnpj, password } = schema.parse(body);
 
-    const user = await prisma.user.findUnique({ where: { email } });
+    // Sanitiza inputs
+    emailOrCnpj = sanitizeInput(emailOrCnpj);
+
+    // Rate limiting
+    const rateLimit = checkRateLimit(emailOrCnpj);
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        {
+          error: "Muitas tentativas de login. Tente novamente mais tarde.",
+          resetAt: rateLimit.resetAt,
+        },
+        { status: 429 }
+      );
+    }
+
+    // Detecta se é email ou CNPJ
+    const isEmail = emailOrCnpj.includes("@");
+    const searchValue = isEmail
+      ? normalizeEmail(emailOrCnpj)
+      : cleanCNPJ(emailOrCnpj);
+
+    // Busca usuário por email OU CNPJ
+    const user = await prisma.user.findFirst({
+      where: isEmail ? { email: searchValue } : { cnpj: searchValue },
+    });
 
     if (!user) {
+      recordFailedAttempt(emailOrCnpj);
+      // Delay proposital para dificultar ataques de timing
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       return NextResponse.json(
         { error: "Credenciais inválidas." },
-        { status: 401 },
+        { status: 401 }
       );
     }
 
     const isCorrect = await bcrypt.compare(password, user.password);
     if (!isCorrect) {
+      recordFailedAttempt(emailOrCnpj);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       return NextResponse.json(
         { error: "Credenciais inválidas." },
-        { status: 401 },
+        { status: 401 }
       );
     }
+
+    // Limpa tentativas após sucesso
+    clearAttempts(emailOrCnpj);
 
     const token = generateToken({
       id: user.id,

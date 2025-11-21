@@ -37,6 +37,12 @@ model User {
   email         String   @unique
   password      String
 
+  // Dados MEI
+  cnpj          String?  @unique
+  razaoSocial   String?
+  telefone      String?
+  atividade     String?  // CNAE principal
+
   // SaaS
   role          Role     @default(USER)
   plan          Plan     @default(FREE)

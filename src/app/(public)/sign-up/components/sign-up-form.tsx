@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Mail, Lock, User, Eye, EyeOff } from "lucide-react";
+import { Mail, Lock, User, Eye, EyeOff, FileText, Phone } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -12,19 +12,47 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema, type SignUpSchema } from "@/schemas/auth";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { formatCNPJ, formatPhone, cleanCNPJ } from "@/utils/cnpj";
 
 export function SignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [cnpjValue, setCnpjValue] = useState("");
+  const [telefoneValue, setTelefoneValue] = useState("");
+  const [razaoSocial, setRazaoSocial] = useState("");
+  const [loadingCNPJ, setLoadingCNPJ] = useState(false);
   const router = useRouter();
 
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<SignUpSchema>({
     resolver: zodResolver(signUpSchema),
   });
+
+  async function handleCNPJBlur() {
+    const cnpj = cleanCNPJ(cnpjValue);
+    if (cnpj.length !== 14) return;
+
+    setLoadingCNPJ(true);
+    try {
+      const res = await fetch(`/api/cnpj/${cnpj}`);
+      if (res.ok) {
+        const data = await res.json();
+        setRazaoSocial(data.razaoSocial || "");
+        toast.success("Dados do CNPJ carregados!");
+      } else {
+        toast.error("CNPJ não encontrado na Receita Federal");
+      }
+    } catch (error) {
+      console.error("Erro ao consultar CNPJ:", error);
+      toast.error("Erro ao consultar CNPJ");
+    } finally {
+      setLoadingCNPJ(false);
+    }
+  }
 
   async function onSubmit(data: SignUpSchema) {
     try {
@@ -34,6 +62,9 @@ export function SignUpForm() {
         body: JSON.stringify({
           name: data.name,
           email: data.email,
+          cnpj: cleanCNPJ(data.cnpj),
+          telefone: data.telefone.replace(/\D/g, ""),
+          razaoSocial: razaoSocial,
           password: data.password,
         }),
       });
@@ -91,6 +122,80 @@ export function SignUpForm() {
         {errors.email && (
           <p className="text-sm text-red-500">{errors.email.message}</p>
         )}
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="cnpj" className="text-sm font-medium">
+          CNPJ
+        </Label>
+        <div className="relative">
+          <FileText className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input
+            id="cnpj"
+            type="text"
+            placeholder="00.000.000/0000-00"
+            className="h-10 pl-10"
+            value={cnpjValue}
+            onChange={(e) => {
+              const formatted = formatCNPJ(e.target.value);
+              setCnpjValue(formatted);
+              setValue("cnpj", formatted);
+            }}
+            onBlur={handleCNPJBlur}
+            maxLength={18}
+            disabled={loadingCNPJ}
+          />
+        </div>
+        {errors.cnpj && (
+          <p className="text-sm text-red-500">{errors.cnpj.message}</p>
+        )}
+        {loadingCNPJ && (
+          <p className="text-sm text-blue-500">Consultando CNPJ...</p>
+        )}
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="razaoSocial" className="text-sm font-medium">
+          Razão Social
+        </Label>
+        <div className="relative">
+          <FileText className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input
+            id="razaoSocial"
+            type="text"
+            placeholder="Preenchido automaticamente"
+            className="h-10 pl-10 bg-muted"
+            value={razaoSocial}
+            readOnly
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3">
+        <div className="space-y-2">
+          <Label htmlFor="telefone" className="text-sm font-medium">
+            Telefone
+          </Label>
+          <div className="relative">
+            <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              id="telefone"
+              type="text"
+              placeholder="(00) 00000-0000"
+              className="h-10 pl-10"
+              value={telefoneValue}
+              onChange={(e) => {
+                const formatted = formatPhone(e.target.value);
+                setTelefoneValue(formatted);
+                setValue("telefone", formatted);
+              }}
+              maxLength={15}
+            />
+          </div>
+          {errors.telefone && (
+            <p className="text-sm text-red-500">{errors.telefone.message}</p>
+          )}
+        </div>
       </div>
 
       <div className="grid grid-cols-2 gap-3">

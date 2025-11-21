@@ -10,7 +10,6 @@ import { Separator } from "@/components/ui/separator";
 import { TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { LoginForm } from "./login-form";
-import { SocialLogin } from "./social-login";
 
 export function LoginCard() {
   return (
@@ -29,7 +28,6 @@ export function LoginCard() {
 
       <CardContent className="space-y-6">
         <LoginForm />
-        <SocialLogin />
       </CardContent>
 
       <CardFooter className="flex flex-col space-y-4">
