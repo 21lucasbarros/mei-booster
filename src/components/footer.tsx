@@ -52,7 +52,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li>
                 <a
-                  href="#"
+                  href="/ajuda"
                   className="hover:text-emerald-400 transition-colors"
                 >
                   Central de Ajuda
@@ -60,7 +60,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/contato"
                   className="hover:text-emerald-400 transition-colors"
                 >
                   Contato

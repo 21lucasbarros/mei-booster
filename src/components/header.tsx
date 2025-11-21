@@ -13,14 +13,14 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#1E1E1E]/95 backdrop-blur-md border-b border-slate-200/50 dark:border-[#2A2A2A]/50 transition-colors">
       <div className="container mx-auto max-w-7xl px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer">
+          <Link href="/" className="flex items-center gap-2 cursor-pointer">
             <div className="w-10 h-10 rounded-xl bg-linear-to-br from-emerald-600 to-teal-600 flex items-center justify-center">
               <TrendingUp className="w-6 h-6 text-white" />
             </div>
             <span className="text-xl font-bold text-slate-900 dark:text-slate-50">
               MEI Booster
             </span>
-          </div>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-8">
             <button
